@@ -1,6 +1,4 @@
-#--////////////////////////////////////////////////////////////////////////////
-#-- Your License or copyright can go here
-#--////////////////////////////////////////////////////////////////////////////
+message(FATAL_ERROR "This repository has been merged into the https://www.github.com/DREAM3D/DREAM3DReview repository. Please do not use this code base.")
 
 set(PLUGIN_NAME TransformationPhase)
 set(${PLUGIN_NAME}_VERSION "1.0")
