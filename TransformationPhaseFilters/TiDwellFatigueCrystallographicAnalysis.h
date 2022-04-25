@@ -232,7 +232,7 @@ class TransformationPhase_EXPORT TiDwellFatigueCrystallographicAnalysis : public
     */
     void preflight() override;
 
-  signals:
+  Q_SIGNALS:
     void updateFilterParameters(AbstractFilter* filter);
     void parametersChanged();
     void preflightAboutToExecute();

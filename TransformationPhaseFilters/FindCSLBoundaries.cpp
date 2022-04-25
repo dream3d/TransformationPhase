@@ -41,7 +41,6 @@
 #include <tbb/parallel_for.h>
 #include <tbb/blocked_range.h>
 #include <tbb/partitioner.h>
-#include <tbb/task_scheduler_init.h>
 #endif
 
 #include "SIMPLib/Math/MatrixMath.h"
@@ -333,11 +332,11 @@ void FindCSLBoundaries::dataCheckSurfaceMesh()
 void FindCSLBoundaries::preflight()
 {
   setInPreflight(true);
-  emit preflightAboutToExecute();
-  emit updateFilterParameters(this);
+  Q_EMIT preflightAboutToExecute();
+  Q_EMIT updateFilterParameters(this);
   dataCheckVoxel();
   dataCheckSurfaceMesh();
-  emit preflightExecuted();
+  Q_EMIT preflightExecuted();
   setInPreflight(false);
 }
 
@@ -354,8 +353,7 @@ void FindCSLBoundaries::execute()
   if(getErrorCondition() < 0) { return; }
 
 #ifdef SIMPL_USE_PARALLEL_ALGORITHMS
-  tbb::task_scheduler_init init;
-  bool doParallel = true;
+    bool doParallel = true;
 #endif
 
   int64_t numTriangles = m_SurfaceMeshFaceLabelsPtr.lock()->getNumberOfTuples();

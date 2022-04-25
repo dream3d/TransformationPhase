@@ -245,7 +245,7 @@ class TransformationPhase_EXPORT InsertTransformationPhases : public AbstractFil
     */
     void preflight() override;
 
-  signals:
+  Q_SIGNALS:
     void updateFilterParameters(AbstractFilter* filter);
     void parametersChanged();
     void preflightAboutToExecute();
